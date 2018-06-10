@@ -1,0 +1,28 @@
+<h1 #heading>{{ element }}</h1>
+<p>
+    <input type="text" (input)="onUpdateData($event)" [value]="data">
+    <input type="text" [(ngModel)]="data" #intputTest1>
+    <input type="text"  #intputTest2>
+</p>
+<div *ngIf="isData">
+    <p>{{ data }}</p>
+    <p [innerText]="data"></p>
+    <h3 appBasicHighlight>{{intputTest1.value}}</h3>
+    <h3 appBetterHighlight [defaultColor]="'yellow'" highlightColor="red">{{intputTest1.value}}</h3>
+</div>
+<ng-template [ngIf]="isData">
+    <p>{{ data }}</p>
+</ng-template>
+<h1 *appUnless="!isData">
+    <p>{{ data }}</p>
+</h1>
+
+<div [ngSwitch]="value">
+    <p *ngSwitchCase="5">Value is 5</p>
+    <p *ngSwitchCase="10">Value is 10</p>
+    <p *ngSwitchDefault>Value is Default</p>
+</div>
+
+<button (click)="onDataClicked($event)">Click</button>
+<button (click)="onGetValueClicked1(intputTest1)">Click intputTest1</button>
+<button (click)="onGetValueClicked2()">Click intputTest2</button>

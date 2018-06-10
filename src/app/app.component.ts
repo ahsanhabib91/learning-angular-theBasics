@@ -1,10 +1,53 @@
-import { Component } from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {NgForm} from '@angular/forms';
+
+//  @Component decorator makes AppComponent class into an Angular Component
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  // encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit {
+    title = 'APP';
+    @ViewChild('f') signUpForm: NgForm;
+    ngOnInit() {
+    this.getHello();
+    this.sayHello('Assalamualaikum').then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+    }
+
+    sayHello(greeting: String) {
+        return new Promise(((resolve, reject) =>  {
+          setTimeout(() => {
+            const value = false;
+            value ? resolve(`${greeting} ............`) : reject('error..............');
+          }, 3000);
+        }));
+    }
+
+    async getHello() {
+        try {
+        const greeting = await this.sayHello('Walaikumsalam');
+          console.log(greeting);
+        } catch (e) {
+          console.log(e);
+        }
+    }
+
+    //  Form Section
+    // onSubmit(form: NgForm) {
+    //     console.log('Submited!!!');
+    //     console.log(form);
+    // }
+
+    onSubmit() {
+        console.log('Submited!!!');
+        console.log(this.signUpForm);
+    }
 }
