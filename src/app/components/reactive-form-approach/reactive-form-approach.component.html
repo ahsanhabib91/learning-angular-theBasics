@@ -1,3 +1,21 @@
-<p>
-  reactive-form-approach works!
-</p>
+<h3> Reactive Form Section </h3>
+<!--Reactive Form Testing Starts-->
+<form>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username">
+    <br>
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email">
+
+    <br>
+    <div *ngFor="let gender of genders">
+        <label>
+            <input type="radio" name="gender" ngModel [value]="gender" required>
+            {{ gender }}
+        </label>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<!--Reactive Form Testing Ends-->
+

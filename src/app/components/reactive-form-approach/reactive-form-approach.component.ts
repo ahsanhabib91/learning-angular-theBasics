@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reactive-form-approach.component.css']
 })
 export class ReactiveFormApproachComponent implements OnInit {
+    genders: string[] = ['male', 'female'];
+    constructor() { }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
