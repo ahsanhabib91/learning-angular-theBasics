@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
 
 //  @Component decorator makes AppComponent class into an Angular Component
 
@@ -11,23 +10,14 @@ import {NgForm} from '@angular/forms';
 })
 export class AppComponent implements OnInit {
     title = 'APP';
-    @ViewChild('f') signUpForm: NgForm;
-    genders: string[] = ['male', 'female'];
-    user = {
-        username: '',
-        email: '',
-        description: '',
-        gender: ''
-    };
-    submitted: Boolean = false;
     ngOnInit() {
-    this.getHello();
-    this.sayHello('Assalamualaikum').then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-        console.log(error);
-    });
+        this.getHello();
+        this.sayHello('Assalamualaikum').then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
 
     sayHello(greeting: String) {
@@ -46,23 +36,5 @@ export class AppComponent implements OnInit {
         } catch (e) {
           console.log(e);
         }
-    }
-
-    //  Form Section
-    // onSubmit(form: NgForm) {
-    //     console.log('Submited!!!');
-    //     console.log(form);
-    // }
-
-    onSubmit() {
-        console.log('Submited!!!');
-        console.log(this.signUpForm);
-        this.submitted = true;
-        this.user.username = this.signUpForm.value.userData.username;
-        this.user.email = this.signUpForm.value.userData.email;
-        this.user.description = this.signUpForm.value.description;
-        this.user.gender = this.signUpForm.value.gender;
-
-        this.signUpForm.reset();
     }
 }

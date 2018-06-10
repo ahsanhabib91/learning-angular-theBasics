@@ -11,6 +11,8 @@ import { UnlessDirective } from './directives/unless.directive';
 import { FrontServerComponent } from './components/front-server/front-server.component';
 import {TestingServiceService} from './testing-service.service';
 import { MyNewComponentComponent } from './components/my-new-component/my-new-component.component';
+import { ReactiveFormApproachComponent } from './components/reactive-form-approach/reactive-form-approach.component';
+import { TemplateDrivenFormApproachComponent } from './components/template-driven-form-approach/template-driven-form-approach.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { MyNewComponentComponent } from './components/my-new-component/my-new-co
     UnlessDirective,
     FrontServerComponent,
     MyNewComponentComponent,
+    ReactiveFormApproachComponent,
+    TemplateDrivenFormApproachComponent,
   ],
   imports: [
     BrowserModule,
