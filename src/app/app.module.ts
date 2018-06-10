@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ServerComponent } from './components/server/server.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BasicHighlightDirective } from './directives/basic-highlight/basic-highlight.directive';
 import { BetterHighlightDirective } from './directives/better-highlight/better-highlight.directive';
 import { UnlessDirective } from './directives/unless.directive';
@@ -29,7 +29,8 @@ import { TemplateDrivenFormApproachComponent } from './components/template-drive
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule, // For Template driven Form
+    ReactiveFormsModule // For Reactive Form
   ],
   providers: [TestingServiceService],
   bootstrap: [AppComponent]
