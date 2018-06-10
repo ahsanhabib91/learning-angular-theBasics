@@ -12,6 +12,14 @@ import {NgForm} from '@angular/forms';
 export class AppComponent implements OnInit {
     title = 'APP';
     @ViewChild('f') signUpForm: NgForm;
+    genders: string[] = ['male', 'female'];
+    user = {
+        username: '',
+        email: '',
+        description: '',
+        gender: ''
+    };
+    submitted: Boolean = false;
     ngOnInit() {
     this.getHello();
     this.sayHello('Assalamualaikum').then(data => {
@@ -49,5 +57,12 @@ export class AppComponent implements OnInit {
     onSubmit() {
         console.log('Submited!!!');
         console.log(this.signUpForm);
+        this.submitted = true;
+        this.user.username = this.signUpForm.value.userData.username;
+        this.user.email = this.signUpForm.value.userData.email;
+        this.user.description = this.signUpForm.value.description;
+        this.user.gender = this.signUpForm.value.gender;
+
+        this.signUpForm.reset();
     }
 }

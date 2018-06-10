@@ -26,8 +26,22 @@
         <textarea type="text" id="description" name="description" ngModel #description="ngModel" required></textarea>
         <span *ngIf="!description.valid && description.touched">Please enter valid description</span>
         <br>
+        <div *ngFor="let gender of genders">
+            <label>
+                <input type="radio" name="gender" ngModel [value]="gender" required>
+                {{ gender }}
+            </label>
+        </div>
         <button type="submit" [disabled]="!f.valid">Submit</button>
     </form>
+
+    <div *ngIf="submitted">
+        <h3>User Info</h3>
+        <p>Name: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Description: {{ user.description }}</p>
+        <p>Gender: {{ user.gender }}</p>
+    </div>
 <!--Form Testing Ends-->
 
 
