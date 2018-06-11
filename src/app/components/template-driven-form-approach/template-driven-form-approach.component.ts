@@ -37,6 +37,9 @@ export class TemplateDrivenFormApproachComponent implements OnInit {
         this.user.gender = this.signUpForm.value.gender;
 
         this.signUpForm.reset();
+        // setTimeout(() => {
+        //     this.signUpForm.reset();
+        // }, 5000);
     }
 
 }
