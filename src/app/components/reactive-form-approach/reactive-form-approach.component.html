@@ -15,8 +15,12 @@
     <textarea type="text" id="description" name="description" formControlName="description"></textarea>
     <span *ngIf="!signUpForm.get('description').valid && signUpForm.get('description').touched">Please enter valid description</span>
     <br>
-    <div>
-
+    <div formArrayName="hobbies">
+        <h3>Hobbies</h3>
+        <button type="button" (click)="addHobby()">Add Hobby</button>
+        <div *ngFor="let hobbyControl of signUpForm.get('hobbies').controls; let i = index">
+            <input type="text" [formControlName]="i">
+        </div>
     </div>
     <br>
     <div *ngFor="let gender of genders">
