@@ -4,11 +4,17 @@
     <div formGroupName="userData">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" formControlName="username">
-        <span *ngIf="!signUpForm.get('userData.username').valid && signUpForm.get('userData.username').touched">Please enter valid username</span>
+        <span *ngIf="!signUpForm.get('userData.username').valid && signUpForm.get('userData.username').touched">
+            <span *ngIf="signUpForm.get('userData.username').errors['required']">Please enter valid username</span>
+            <span *ngIf="signUpForm.get('userData.username').errors['nameIsForbidden']">Anna/Henna is forbidden</span>
+        </span>
         <br>
         <label for="email">Email</label>
         <input type="text" id="email" name="email" formControlName="email">
-        <span *ngIf="!signUpForm.get('userData.email').valid && signUpForm.get('userData.email').touched">Please enter valid email</span>
+        <span *ngIf="!signUpForm.get('userData.email').valid && signUpForm.get('userData.email').touched">
+            <span *ngIf="signUpForm.get('userData.email').errors['required']">Email required</span>
+            <span *ngIf="signUpForm.get('userData.email').errors['email']">Please enter valid email</span>
+        </span>
     </div>
     <br>
     <label for="description">Description</label>
@@ -18,7 +24,7 @@
     <div formArrayName="hobbies">
         <h3>Hobbies</h3>
         <button type="button" (click)="addHobby()">Add Hobby</button>
-        <div *ngFor="let hobbyControl of signUpForm.get('hobbies').controls; let i = index">
+        <div *ngFor="let hobbyControl of signUpForm.get('hobbies').controls; let i = index;">
             <input type="text" [formControlName]="i">
         </div>
     </div>
@@ -30,7 +36,8 @@
         </label>
         <span *ngIf="!signUpForm.valid && signUpForm.touched">Please enter choose gender</span>
     </div>
-    <button type="submit" [disabled]="!signUpForm.valid">Submit</button>
+    <!--<button type="submit" [disabled]="!signUpForm.valid">Submit</button>-->
+    <button type="submit">Submit</button>
 </form>
 
 <!--Reactive Form Testing Ends-->
