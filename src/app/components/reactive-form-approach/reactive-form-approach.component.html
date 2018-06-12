@@ -15,6 +15,10 @@
     <textarea type="text" id="description" name="description" formControlName="description"></textarea>
     <span *ngIf="!signUpForm.get('description').valid && signUpForm.get('description').touched">Please enter valid description</span>
     <br>
+    <div>
+
+    </div>
+    <br>
     <div *ngFor="let gender of genders">
         <label>
             <input type="radio" name="gender" ngModel [value]="gender" required formControlName="gender">
