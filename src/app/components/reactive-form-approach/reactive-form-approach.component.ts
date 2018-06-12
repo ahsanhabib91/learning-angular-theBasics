@@ -31,6 +31,7 @@ export class ReactiveFormApproachComponent implements OnInit {
     addHobby() {
         const control = new FormControl(null, Validators.required);
         (<FormArray>this.signUpForm.get('hobbies')).push(control);
+        console.log('Testing Commit');
     }
 
 }
